@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Heart, Sparkles, Instagram, Film } from 'lucide-react';
+import { Sparkles, Instagram, Clapperboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import clapperboardImage from '@/assets/clapperboard.png';
 
 interface SuccessScreenProps {
   onReset: () => void;
@@ -22,11 +23,13 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
-      {/* Burst Hearts Animation */}
+      {/* Burst Clapperboard Animation */}
       {burstHearts.map((id) => (
-        <Heart
+        <img
           key={id}
-          className="absolute text-primary fill-primary heart-burst"
+          src={clapperboardImage}
+          alt=""
+          className="absolute heart-burst"
           style={{
             left: '50%',
             top: '40%',
@@ -42,13 +45,10 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
 
       {showContent && (
         <div className="fade-scale-in">
-          {/* Success Icon */}
+          {/* Reel Icon */}
           <div className="relative inline-block mb-8">
-            <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-card">
-              <Heart className="w-14 h-14 md:w-18 md:h-18 text-primary-foreground fill-current animate-pulse" />
-            </div>
+            <Clapperboard className="w-20 h-20 md:w-28 md:h-28 text-primary" />
             <Sparkles className="absolute -top-4 -right-4 w-10 h-10 text-accent animate-float" />
-            <Film className="absolute -bottom-2 -left-4 w-8 h-8 text-primary" />
           </div>
 
           {/* Success Message */}
@@ -62,7 +62,7 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
 
           <p className="text-base text-muted-foreground mb-10 max-w-md mx-auto">
             Your story has been successfully sent to our team. 
-            We'll review it and if selected, we'll create a beautiful short film just for you!
+            We'll review it and create a beautiful short film just for you! Please be patience.
           </p>
 
           {/* Social Links */}
@@ -85,15 +85,15 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
             size="lg"
             className="rounded-full"
           >
-            <Heart className="w-4 h-4 mr-2" />
+            <img src={clapperboardImage} alt="" className="w-4 h-4 mr-2" />
             Share Another Story
           </Button>
 
           {/* Footer */}
           <div className="mt-16 text-muted-foreground/60 text-sm flex items-center justify-center gap-2">
-            <Heart className="w-4 h-4 fill-current" />
+            <img src={clapperboardImage} alt="" className="w-4 h-4" />
             <span>Every story deserves to be told</span>
-            <Heart className="w-4 h-4 fill-current" />
+            <img src={clapperboardImage} alt="" className="w-4 h-4" />
           </div>
         </div>
       )}
