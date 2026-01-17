@@ -59,23 +59,42 @@ const StoryForm = () => {
 
   const handleStorySubmit = useCallback(async (story: string) => {
     const submissionData = {
-      ...formData,
+      anonymous: formData.anonymous,
+      senderName: formData.senderName || 'Anonymous',
+      senderInstagram: formData.senderInstagram || 'Not provided',
+      dedicationType: formData.dedicationType,
+      receiverName: formData.receiverName || 'N/A',
+      receiverInstagram: formData.receiverInstagram || 'Not provided',
       story
     };
 
-    // For now, we'll simulate a successful submission
-    // Later we'll connect this to an edge function
-    console.log('Story submission:', submissionData);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Story Sent! 💖",
-      description: "Your story has been successfully submitted.",
-    });
-    
-    setCurrentStep('success');
+    try {
+      const response = await fetch('https://formspree.io/f/mkooopbg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(submissionData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      toast({
+        title: "Story Sent! 💖",
+        description: "Your story has been successfully submitted.",
+      });
+      
+      setCurrentStep('success');
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "Please try again later.",
+        variant: "destructive"
+      });
+    }
   }, [formData, toast]);
 
   const handleReset = useCallback(() => {
