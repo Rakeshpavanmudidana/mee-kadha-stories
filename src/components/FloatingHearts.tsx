@@ -36,7 +36,7 @@ const FloatingHearts = () => {
             bottom: '-20px',
             width: `${item.size}px`,
             height: `${item.size}px`,
-            animation: `float-up ${item.duration}s ease-in-out infinite`,
+            animation: `float-rotate ${item.duration}s ease-in-out infinite`,
             animationDelay: `${item.delay}s`,
           }}
         />
