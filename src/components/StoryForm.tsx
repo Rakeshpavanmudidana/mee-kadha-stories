@@ -6,6 +6,7 @@ import ReceiverDetailsStep from './ReceiverDetailsStep';
 import StoryWritingStep from './StoryWritingStep';
 import SuccessScreen from './SuccessScreen';
 import FloatingHearts from './FloatingHearts';
+import StickyHeader from './StickyHeader';
 import { useToast } from '@/hooks/use-toast';
 
 type Step = 'welcome' | 'anonymous' | 'dedication' | 'receiver' | 'story' | 'success';
@@ -125,6 +126,15 @@ const StoryForm = () => {
     }
   }, [currentStep, formData.dedicationType]);
 
+  const handleLogoClick = useCallback(() => {
+    // Navigate back to welcome screen
+    setFormData({ anonymous: true });
+    setCurrentStep('welcome');
+  }, []);
+
+  // Determine if we should show the sticky header (not on welcome or success screens)
+  const showStickyHeader = currentStep !== 'welcome' && currentStep !== 'success';
+
   const renderStep = () => {
     switch (currentStep) {
       case 'welcome':
@@ -154,7 +164,8 @@ const StoryForm = () => {
   return (
     <div className="gradient-animated min-h-screen relative">
       <FloatingHearts />
-      <div className="relative z-10">
+      {showStickyHeader && <StickyHeader onLogoClick={handleLogoClick} />}
+      <div className={`relative z-10 ${showStickyHeader ? 'pt-16' : ''}`}>
         {renderStep()}
       </div>
     </div>
