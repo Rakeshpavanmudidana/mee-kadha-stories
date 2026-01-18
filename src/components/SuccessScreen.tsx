@@ -30,7 +30,7 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-8 text-center relative overflow-hidden">
       {/* Burst Clapperboard Animation */}
       {burstHearts.map((id) => (
         <img
@@ -109,15 +109,17 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
               {/* Separator line */}
               <div className="w-32 h-px bg-gradient-to-r from-transparent via-muted-foreground/30 to-transparent mb-6" />
               
-              <p className="text-sm text-muted-foreground/50 uppercase tracking-widest mb-4">
+              <p className="text-xs sm:text-sm text-muted-foreground/50 uppercase tracking-widest mb-3 sm:mb-4">
                 A Production By
               </p>
               
-              <img 
-                src={meeKadhaLogo} 
-                alt="MEE KADHA" 
-                className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover shadow-lg ring-2 ring-white/10 mb-3 animate-credits-fade-in"
-              />
+              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden shadow-lg ring-2 ring-primary/20 mb-3 animate-credits-fade-in bg-gradient-to-br from-primary/20 to-accent/20 p-0.5">
+                <img 
+                  src={meeKadhaLogo} 
+                  alt="MEE KADHA" 
+                  className="w-full h-full rounded-full object-cover"
+                />
+              </div>
               
               <h2 className="font-serif text-2xl font-semibold text-gradient mb-1">
                 MEE KADHA
