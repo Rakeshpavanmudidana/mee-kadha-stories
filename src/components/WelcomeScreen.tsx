@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import meeKadhaLogo from '@/assets/mee-kadha-logo.jpeg';
+import meeKadhaLogo from '@/assets/mee-kadha-logo.png';
 
 interface WelcomeScreenProps {
   onStart: () => void;
@@ -64,11 +64,11 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
         <div className="mb-6 sm:mb-8 relative">
           <div className={`transition-all duration-1000 delay-300 ${animationPhase === 'ready' ? 'animate-logo-entrance' : ''}`}>
             <div className="relative inline-block">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 rounded-full overflow-hidden shadow-2xl ring-4 ring-primary/30 animate-pulse-glow bg-gradient-to-br from-primary/20 to-accent/20 p-1">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 overflow-hidden shadow-2xl animate-pulse-glow">
                 <img 
                   src={meeKadhaLogo} 
                   alt="MEE KADHA Logo" 
-                  className="w-full h-full rounded-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <Sparkles className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 text-accent animate-float" />

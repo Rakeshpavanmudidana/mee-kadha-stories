@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Sparkles, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import meeKadhaLogo from '@/assets/mee-kadha-logo.jpeg';
+import meeKadhaLogo from '@/assets/mee-kadha-logo.png';
 import clapperboardImage from '@/assets/clapperboard.png';
 
 interface SuccessScreenProps {
@@ -113,11 +113,11 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
                 A Production By
               </p>
               
-              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden shadow-lg ring-2 ring-primary/20 mb-3 animate-credits-fade-in bg-gradient-to-br from-primary/20 to-accent/20 p-0.5">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 overflow-hidden mb-3 animate-credits-fade-in">
                 <img 
                   src={meeKadhaLogo} 
                   alt="MEE KADHA" 
-                  className="w-full h-full rounded-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               
