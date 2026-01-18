@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Sparkles, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import meeKadhaLogo from '@/assets/mee-kadha-logo.jpeg';
 import clapperboardImage from '@/assets/clapperboard.png';
 
 interface SuccessScreenProps {
@@ -9,6 +10,7 @@ interface SuccessScreenProps {
 
 const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
   const [showContent, setShowContent] = useState(false);
+  const [showCredits, setShowCredits] = useState(false);
   const [burstHearts, setBurstHearts] = useState<number[]>([]);
 
   useEffect(() => {
@@ -17,8 +19,14 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
     setBurstHearts(newHearts);
 
     // Show main content after burst
-    const timer = setTimeout(() => setShowContent(true), 500);
-    return () => clearTimeout(timer);
+    const timer1 = setTimeout(() => setShowContent(true), 500);
+    // Show end credits logo after content
+    const timer2 = setTimeout(() => setShowCredits(true), 1200);
+    
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, []);
 
   return (
@@ -44,10 +52,12 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
       ))}
 
       {showContent && (
-        <div className="fade-scale-in">
-          {/* Reel Icon */}
+        <div className="fade-scale-in flex flex-col items-center">
+          {/* Success Icon */}
           <div className="relative inline-block mb-8">
-            <img src={clapperboardImage} alt="Clapperboard" className="w-20 h-20 md:w-28 md:h-28 pulse-soft" />
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-2xl pulse-soft">
+              <span className="text-4xl md:text-5xl">✓</span>
+            </div>
             <Sparkles className="absolute -top-4 -right-4 w-10 h-10 text-accent animate-float" />
           </div>
 
@@ -89,11 +99,34 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
             Share Another Story
           </Button>
 
-          {/* Footer */}
-          <div className="mt-16 text-muted-foreground/60 text-sm flex items-center justify-center gap-2">
-            <img src={clapperboardImage} alt="" className="w-4 h-4" />
-            <span>Every story deserves to be told</span>
-            <img src={clapperboardImage} alt="" className="w-4 h-4" />
+          {/* End Credits Style Logo - Bottom Placement */}
+          <div 
+            className={`mt-20 transition-all duration-1000 ${
+              showCredits ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <div className="flex flex-col items-center">
+              {/* Separator line */}
+              <div className="w-32 h-px bg-gradient-to-r from-transparent via-muted-foreground/30 to-transparent mb-6" />
+              
+              <p className="text-sm text-muted-foreground/50 uppercase tracking-widest mb-4">
+                A Production By
+              </p>
+              
+              <img 
+                src={meeKadhaLogo} 
+                alt="MEE KADHA" 
+                className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover shadow-lg ring-2 ring-white/10 mb-3 animate-credits-fade-in"
+              />
+              
+              <h2 className="font-serif text-2xl font-semibold text-gradient mb-1">
+                MEE KADHA
+              </h2>
+              
+              <p className="text-muted-foreground/60 text-sm italic">
+                Your Story, Our Lens 🎬
+              </p>
+            </div>
           </div>
         </div>
       )}
