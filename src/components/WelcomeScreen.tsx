@@ -1,5 +1,6 @@
-import { Heart, Film, Sparkles } from 'lucide-react';
+import { Film, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import clapperboardImage from '@/assets/clapperboard.png';
 
 interface WelcomeScreenProps {
   onStart: () => void;
@@ -14,7 +15,7 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-card animate-pulse-glow">
             <Film className="w-12 h-12 md:w-16 md:h-16 text-primary-foreground" />
           </div>
-          <Heart className="absolute -top-2 -right-2 w-8 h-8 text-primary fill-primary animate-float" />
+          <img src={clapperboardImage} alt="" className="absolute -top-2 -right-2 w-8 h-8 animate-float" />
           <Sparkles className="absolute -bottom-2 -left-2 w-6 h-6 text-accent" />
         </div>
       </div>
@@ -60,15 +61,15 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
       >
         <span className="flex items-center gap-3">
           Begin Your Story
-          <Heart className="w-5 h-5 group-hover:scale-110 transition-transform fill-current" />
+          <img src={clapperboardImage} alt="" className="w-5 h-5 group-hover:scale-110 transition-transform" />
         </span>
       </Button>
 
       {/* Bottom decoration */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 text-muted-foreground/60 text-sm">
-        <Heart className="w-4 h-4 fill-current" />
+        <img src={clapperboardImage} alt="" className="w-4 h-4" />
         <span>Every story deserves to be told</span>
-        <Heart className="w-4 h-4 fill-current" />
+        <img src={clapperboardImage} alt="" className="w-4 h-4" />
       </div>
     </div>
   );

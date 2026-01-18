@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Send, Loader2, Heart } from 'lucide-react';
+import { Send, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import StepCard from './StepCard';
+import clapperboardImage from '@/assets/clapperboard.png';
 
 interface StoryWritingStepProps {
   onSubmit: (story: string) => Promise<void>;
@@ -60,7 +61,7 @@ const StoryWritingStep = ({ onSubmit, onBack, dedicationType, receiverName }: St
       <div className="space-y-5">
         <div className="space-y-2">
           <Label htmlFor="story" className="text-foreground font-medium flex items-center gap-2">
-            <Heart className="w-4 h-4 text-primary" />
+            <img src={clapperboardImage} alt="" className="w-4 h-4" />
             Your Story <span className="text-primary">*</span>
           </Label>
           <Textarea
@@ -86,7 +87,7 @@ const StoryWritingStep = ({ onSubmit, onBack, dedicationType, receiverName }: St
 
         <div className="bg-secondary/50 rounded-lg p-4 text-sm text-muted-foreground">
           <p className="flex items-start gap-2">
-            <Heart className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
+            <img src={clapperboardImage} alt="" className="w-4 h-4 mt-0.5 flex-shrink-0" />
             Your story will be reviewed by our team. If selected, we'll create a beautiful short film and feature it on our Instagram page.
           </p>
         </div>

@@ -1,5 +1,6 @@
-import { Heart, Users } from 'lucide-react';
+import { Users } from 'lucide-react';
 import StepCard from './StepCard';
+import clapperboardImage from '@/assets/clapperboard.png';
 
 interface DedicationStepProps {
   onNext: (dedicationType: 'myself' | 'others') => void;
@@ -21,7 +22,7 @@ const DedicationStep = ({ onNext, onBack }: DedicationStepProps) => {
           className="group p-6 rounded-xl border-2 border-border hover:border-primary bg-card hover:bg-secondary/50 transition-all duration-300 text-left flex items-center gap-4"
         >
           <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-            <Heart className="w-7 h-7 text-primary" />
+            <img src={clapperboardImage} alt="" className="w-7 h-7" />
           </div>
           <div>
             <span className="font-semibold text-foreground text-lg block">For Myself</span>
