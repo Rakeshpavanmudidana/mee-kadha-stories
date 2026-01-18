@@ -12,11 +12,13 @@ const StickyHeader = ({ onLogoClick }: StickyHeaderProps) => {
         className="flex items-center gap-2 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-full"
         title="Back to home"
       >
-        <img 
-          src={meeKadhaLogo} 
-          alt="MEE KADHA" 
-          className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-md ring-2 ring-white/20"
-        />
+        <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full overflow-hidden shadow-md ring-2 ring-primary/30 bg-gradient-to-br from-primary/20 to-accent/20 p-0.5">
+          <img 
+            src={meeKadhaLogo} 
+            alt="MEE KADHA" 
+            className="w-full h-full rounded-full object-cover"
+          />
+        </div>
         <span className="hidden sm:block font-serif text-lg font-semibold text-gradient">
           MEE KADHA
         </span>
