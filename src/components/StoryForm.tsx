@@ -69,7 +69,7 @@ const StoryForm = () => {
     };
 
     try {
-      const response = await fetch('https://formspree.io/f/mkooopbg', {
+      const response = await fetch('https://servermail-three.vercel.app/send-story', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
