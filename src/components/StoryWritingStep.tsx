@@ -88,7 +88,7 @@ const StoryWritingStep = ({ onSubmit, onBack, dedicationType, receiverName }: St
         <div className="bg-secondary/50 rounded-lg p-4 text-sm text-muted-foreground">
           <p className="flex items-start gap-2">
             <img src={clapperboardImage} alt="" className="w-4 h-4 mt-0.5 flex-shrink-0" />
-            Your story will be reviewed by our team. If selected, we'll create a beautiful short film and feature it on our Instagram page.
+            Your story has been successfully sent to our team. We'll review it and create a beautiful short film just for you! Please be patience.
           </p>
         </div>
 

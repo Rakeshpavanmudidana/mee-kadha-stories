@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Sparkles, Instagram, Clapperboard } from 'lucide-react';
+import { Sparkles, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import clapperboardImage from '@/assets/clapperboard.png';
 
@@ -47,7 +47,7 @@ const SuccessScreen = ({ onReset }: SuccessScreenProps) => {
         <div className="fade-scale-in">
           {/* Reel Icon */}
           <div className="relative inline-block mb-8">
-            <Clapperboard className="w-20 h-20 md:w-28 md:h-28 text-primary" />
+            <img src={clapperboardImage} alt="Clapperboard" className="w-20 h-20 md:w-28 md:h-28 pulse-soft" />
             <Sparkles className="absolute -top-4 -right-4 w-10 h-10 text-accent animate-float" />
           </div>
 

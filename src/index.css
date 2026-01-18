@@ -237,6 +237,26 @@
   }
 }
 
+@keyframes float-rotate {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  90% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
 @keyframes pulse-soft {
   0%, 100% {
     opacity: 1;
