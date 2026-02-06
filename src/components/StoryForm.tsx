@@ -70,7 +70,7 @@ const StoryForm = () => {
     };
 
     try {
-      const response = await fetch('https://server1-lemon-nine.vercel.app/send-story', {
+      const response = await fetch('http://localhost:3001/send-story', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
